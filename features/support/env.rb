@@ -18,7 +18,7 @@ end
 options = {
   'port' => 5500,
   'portboot' => 5051,
-  'sn' => '00bbb8a0ec4f9f25',
+  'sn' => '080cdebb01894a88',
   'app' => 'app.apk',
   'appPackage' => 'com.testdevlab.notifyus'
 

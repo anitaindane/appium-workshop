@@ -29,10 +29,30 @@ class TestAddFilter
     @screens.screen_select_sub_category.select_sub_category 'Visi'
   end
 
-  def submit_empty_filter_parameters
+  def set_filter
+    @screens.screen_set_filter_parameters.set_filter('Filtrs 1')
+  end
+
+  def set_price
+    @screens.screen_set_filter_parameters.set_value('CENA (EUR)','1','1000')
+  end
+
+  def set_area
+    @screens.screen_set_filter_parameters.set_value('PLATĪBA (M2)','1','3000')
+  end
+
+  def submit_filter_parameters
     @screens.screen_set_filter_parameters.visible?
     @screens.screen_set_filter_parameters.save_filter
   end
+
+  def valid_filter
+    @screens.screen_check_filter.check_filter 'Filter 1'
+  end
+#  def submit_empty_filter_parameters
+#    @screens.screen_set_filter_parameters.visible?
+#    @screens.screen_set_filter_parameters.save_filter
+#  end
 
   def create_empty_filter
     select_category 'Nekustamie īpašumi'
@@ -40,6 +60,19 @@ class TestAddFilter
     select_district
     select_town
     select_action
-    submit_empty_filter_parameters
+    submit_filter_parameters
+  end
+
+  def create_filter
+    select_category 'Nekustamie īpašumi'
+    select_type
+    select_district
+    select_town
+    select_action
+    set_filter
+    set_price
+    set_area
+    submit_filter_parameters
+
   end
 end
